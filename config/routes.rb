@@ -17,4 +17,8 @@ SupercarIndexBricks::Application.routes.draw do
     resources :posts
   end
 
+  resources :supercars do 
+  resources :makes
+end
+
 end

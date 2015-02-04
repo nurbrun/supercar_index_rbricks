@@ -1,0 +1,9 @@
+<h1>Supercar Index, Dawg!</h1>
+
+<h4><%= link_to "Upload Supercar", "/supercars/new" %></h4>
+
+<a href="http://www.google.com">click here, domenic!</a>
+
+<% @supercars.each do |supercar| %>
+	<div><p><%= supercar.img_url %> </p>
+	<% end %>
