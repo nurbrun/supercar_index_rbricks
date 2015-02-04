@@ -17,8 +17,9 @@ SupercarIndexBricks::Application.routes.draw do
     resources :posts
   end
 
-  resources :supercars do 
+  resources :supercars 
   resources :makes
-end
+
+  get 'makes/tags/:tag', to: 'makes#index', as: :tag
 
 end

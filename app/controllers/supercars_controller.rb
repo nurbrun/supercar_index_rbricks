@@ -1,6 +1,7 @@
 class SupercarsController < ApplicationController
 
 	def index
+	 
 		@supercars = Supercar.all
 
 	end
