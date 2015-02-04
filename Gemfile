@@ -63,3 +63,5 @@ end
 group :production do
   gem 'unicorn'
 end
+
+gem 'acts-as-taggable-on'

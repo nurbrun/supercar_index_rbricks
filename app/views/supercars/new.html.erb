@@ -3,25 +3,25 @@
  <%= fields_for(@supercar.make) do |m| %>
  <div class="field">
    <%= m.label :Make %><br />
-   <%= m.text_field :name %>
+   <%= m.text_field :tag_list %>
  </div>
  <% end %>
  <%= fields_for(@supercar.car_model) do |c| %>
  <div class="field">
    <%= c.label :Model %><br />
-   <%= c.text_field :name %>
+   <%= c.text_field :tag_list %>
  </div>
  <% end %>
  <%= fields_for(@supercar.city) do |i| %>
  <div class="field">
    <%= i.label :City %><br />
-   <%= i.text_field :name %>
+   <%= i.text_field :tag_list %>
  </div>
  <% end %>
  <%= fields_for(@supercar.country) do |o| %>
  <div class="field">
    <%= o.label :Country %><br />
-   <%= o.text_field :name %>
+   <%= o.text_field :tag_list %>
  </div>
  <% end %>
  <div class="field">

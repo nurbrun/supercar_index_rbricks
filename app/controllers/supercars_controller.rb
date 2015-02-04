@@ -43,16 +43,16 @@ class SupercarsController < ApplicationController
 	 params.require(:supercar).permit(:img_url)
 	end
 	def make_params
-	 params.require(:make).permit(:name)
+	 params.require(:make).permit(:name, :tag_list)
 	end
 	def car_model_params
-	 params.require(:car_model).permit(:name)
+	 params.require(:car_model).permit(:name, :tag_list)
 	end
 	def city_params
-	 params.require(:city).permit(:name)
+	 params.require(:city).permit(:name, :tag_list)
 	end
 	def country_params
-	 params.require(:country).permit(:name)
+	 params.require(:country).permit(:name, :tag_list)
 	end
 
 	end

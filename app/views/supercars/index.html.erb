@@ -13,10 +13,10 @@
 
   <% @supercars.each do |supercar| %>
   <tr>
-    <td><%= supercar.make.name %></td>
-    <td><%= supercar.car_model.name %></td>
-    <td><%= supercar.city.name %></td>
-    <td><%= supercar.country.name %></td>
+    <td><%= supercar.make.tag_list %></td>
+    <td><%= supercar.car_model.tag_list %></td>
+    <td><%= supercar.city.tag_list %></td>
+    <td><%= supercar.country.tag_list %></td>
   </tr>
 
   <% end %>
