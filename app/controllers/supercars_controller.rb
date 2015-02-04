@@ -2,6 +2,7 @@ class SupercarsController < ApplicationController
 
 	def index
 		@supercars = Supercar.all
+
 	end
 
 	def new
@@ -10,16 +11,13 @@ class SupercarsController < ApplicationController
 		@supercar.car_model = CarModel.new
 		@supercar.city = City.new
 		@supercar.country = Country.new
-		# @car_model = @supercar.name.build
-		# @city = @supercar.name.build
-		# @country = @supercar.name.build
 	end
 
 	def show
 		@supercar = Supercar.find(params[:id])
 
 		if current_user
-			@comment = @supercar.comments.build
+			
 		end
 	end
 
@@ -30,9 +28,6 @@ class SupercarsController < ApplicationController
 		@supercar.car_model = CarModel.new(car_model_params)
 		@supercar.city = City.new(city_params)
 		@supercar.country = Country.new(country_params)
-
-		# @make = Make.new(make_params)
-
 		
 		# @supercar.user = current_user
 	  	if @supercar.save

@@ -1,9 +1,28 @@
 <h1>Supercar Index, Dawg!</h1>
 
-<h4><%= link_to "Upload Supercar", "/supercars/new" %></h4>
+<h5><%= link_to "Upload Supercar", "/supercars/new" %></h5>
 
-<a href="http://www.google.com">click here, domenic!</a>
+
+<table class="table table-striped">
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>City</th>
+    <th>Country</th>    
+  </tr>
+
+  <% @supercars.each do |supercar| %>
+  <tr>
+    <td><%= supercar.make.name %></td>
+    <td><%= supercar.car_model.name %></td>
+    <td><%= supercar.city.name %></td>
+    <td><%= supercar.country.name %></td>
+  </tr>
+
+  <% end %>
+
+</table>
 
 <% @supercars.each do |supercar| %>
-	<div><p><%= supercar.img_url %> </p>
-	<% end %>
+		<%= link_to image_tag(supercar.img_url), "/supercars/#{supercar.id}" %>
+<% end %>

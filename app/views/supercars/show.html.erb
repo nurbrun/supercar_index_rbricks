@@ -1,0 +1,11 @@
+<%= link_to "Back to Supercars", supercars_url %> |  <%= link_to "Delete", @supercar, method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}  %>
+
+
+
+
+    <p><%= @supercar.make.name %></p>
+    <p><%= @supercar.car_model.name %></p>
+    <p><%= @supercar.city.name %></p>
+    <p><%= @supercar.country.name %></p>
+	
+	<%= image_tag(@supercar.img_url) %>
