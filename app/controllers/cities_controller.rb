@@ -4,6 +4,7 @@ class CitiesController < ApplicationController
 	    @cities = City.tagged_with(params[:tag])
 	  else
 	    @cities = City.all
+	    render :allcities
 	  end
 	end
 end

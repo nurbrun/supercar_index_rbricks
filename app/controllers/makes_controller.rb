@@ -4,6 +4,7 @@ class MakesController < ApplicationController
 	    @makes = Make.tagged_with(params[:tag])
 	  else
 	    @makes = Make.all
+	    render :allmakes
 	  end
 	end
 
