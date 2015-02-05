@@ -1,6 +1,12 @@
 <% @makes.each do |make| %>
   <tr>
     <td><%= make.tag_list %></td>
+    <td><%= make.supercar.car_model.tag_list %> </td>
+    <td><%= make.supercar.city.tag_list %> </td>
+    <td><%= make.supercar.country.tag_list %> </td>
+
+    <%= image_tag(make.supercar.img_url) %>
+
   </tr>
 
   <% end %>

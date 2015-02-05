@@ -20,6 +20,9 @@ SupercarIndexBricks::Application.routes.draw do
   resources :supercars 
   resources :makes
 
-  get 'makes/tags/:tag', to: 'makes#index', as: :tag
+  get 'makes/tags/:tag', to: 'makes#index', as: :makes_tag
+  get 'models/tags/:tag', to: 'car_models#index', as: :models_tag
+  get 'cities/tags/:tag', to: 'cities#index', as: :cities_tag
+  get 'countries/tags/:tag', to: 'countries#index', as: :countries_tag
 
 end

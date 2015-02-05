@@ -1,0 +1,12 @@
+<% @cities.each do |city| %>
+  <tr>
+    <td><%= city.tag_list %></td>
+    <td><%= city.supercar.car_model.tag_list %> </td>
+    <td><%= city.supercar.city.tag_list %> </td>
+    <td><%= city.supercar.country.tag_list %> </td>
+
+    <%= image_tag(city.supercar.img_url) %>
+
+  </tr>
+
+  <% end %>

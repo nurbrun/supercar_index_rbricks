@@ -1,0 +1,12 @@
+<% @car_models.each do |car_model| %>
+  <tr>
+    <td><%= car_model.tag_list %></td>
+    <td><%= car_model.supercar.car_model.tag_list %> </td>
+    <td><%= car_model.supercar.city.tag_list %> </td>
+    <td><%= car_model.supercar.country.tag_list %> </td>
+
+    <%= image_tag(car_model.supercar.img_url) %>
+
+  </tr>
+
+  <% end %>
