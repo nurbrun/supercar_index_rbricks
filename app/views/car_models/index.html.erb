@@ -1,12 +1,14 @@
-<% @car_models.each do |car_model| %>
-  <tr>
-    <td><%= car_model.tag_list %></td>
-    <td><%= car_model.supercar.car_model.tag_list %> </td>
-    <td><%= car_model.supercar.city.tag_list %> </td>
-    <td><%= car_model.supercar.country.tag_list %> </td>
+
+
+ <% @car_models.reverse.each do |car_model| %>
+ <br> 
+	<p><%= link_to car_model.supercar.make.tag_list, makes_tag_path(car_model.supercar.make.tag_list) %></p>
+	<h3><%= car_model.supercar.car_model.tag_list %> </h3>
+	<p><%= link_to car_model.supercar.city.tag_list, cities_tag_path(car_model.supercar.city.tag_list) %></p>
+   	<p><%= link_to car_model.supercar.country.tag_list, countries_tag_path(car_model.supercar.country.tag_list) %></p>
 
     <%= image_tag(car_model.supercar.img_url) %>
 
-  </tr>
+
 
   <% end %>

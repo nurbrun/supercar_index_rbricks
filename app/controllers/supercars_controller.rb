@@ -22,6 +22,26 @@ class SupercarsController < ApplicationController
 		end
 	end
 
+	def edit
+  		@supercar = Supercar.find(params[:id])
+	end
+
+	def update
+	  @supercar = Supercar.find(params[:id])
+	  @supercar.update(supercar_params)
+	  @supercar.make.update(make_params)
+	  @supercar.car_model.update(car_model_params)
+	  @supercar.city.update(city_params)
+	  @supercar.country.update(country_params)
+	    if @supercar.update_attributes(supercar_params)
+	      flash[:success] = "Supercar updated"
+	      redirect_to @supercar
+	    else
+	      render 'edit'
+	    end
+	end
+
+
 	def create
 
 		@supercar = Supercar.new(supercar_params)
@@ -38,7 +58,9 @@ class SupercarsController < ApplicationController
 	  	end
 
 	end
-
+	
+def destroy
+end
 	private
 	def supercar_params
 	 params.require(:supercar).permit(:img_url)

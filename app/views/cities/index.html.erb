@@ -1,12 +1,12 @@
-<% @cities.each do |city| %>
-  <tr>
-    <td><%= city.tag_list %></td>
-    <td><%= city.supercar.car_model.tag_list %> </td>
-    <td><%= city.supercar.city.tag_list %> </td>
-    <td><%= city.supercar.country.tag_list %> </td>
+<% @cities.reverse.each do |city| %>
+ <br> 
+	<p><%= link_to city.supercar.make.tag_list, makes_tag_path(city.supercar.make.tag_list) %></p>
+	<p><%= link_to city.supercar.car_model.tag_list, models_tag_path(city.supercar.car_model.tag_list) %></p>
+    <h3><%= city.supercar.city.tag_list %> </h3>
+   	<p><%= link_to city.supercar.country.tag_list, countries_tag_path(city.supercar.country.tag_list) %></p>
 
     <%= image_tag(city.supercar.img_url) %>
 
-  </tr>
+
 
   <% end %>

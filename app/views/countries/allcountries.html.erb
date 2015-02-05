@@ -1,0 +1,7 @@
+
+<h3>Cities:</h3>
+<div id="tag_cloud">
+  <% tag_cloud Country.tag_counts, %w{s m l} do |tag, css_class| %>
+    <p><%= link_to tag.name, countries_tag_path(tag.name), class: css_class %></p>
+  <% end %>
+</div>

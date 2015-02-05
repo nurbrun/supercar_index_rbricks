@@ -1,11 +1,16 @@
-<%= link_to "Back to Supercars", supercars_url %> |  <%= link_to "Delete", @supercar, method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}  %>
+<br>
+
+<h4><%= link_to "Back to Supercars", supercars_url %> |  <%= link_to "Delete", @supercar, method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}  %></h4>
 
 
-
-
-    <p><%= @supercar.make.tag_list %></p>
-    <p><%= @supercar.car_model.tag_list %></p>
-    <p><%= @supercar.city.tag_list %></p>
-    <p><%= @supercar.country.tag_list %></p>
+<br>
+	<p><%= link_to @supercar.make.tag_list, makes_tag_path(@supercar.make.tag_list) %></p>
+	<p><%= link_to @supercar.car_model.tag_list, models_tag_path(@supercar.car_model.tag_list) %></p>
+	<p><%= link_to @supercar.city.tag_list, cities_tag_path(@supercar.city.tag_list) %></p>
+	<p><%= link_to @supercar.country.tag_list, countries_tag_path(@supercar.country.tag_list) %></p>
 	
 	<%= image_tag(@supercar.img_url) %>
+
+
+	
+
