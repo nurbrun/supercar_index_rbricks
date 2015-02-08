@@ -8,4 +8,8 @@ class MakesController < ApplicationController
 	  end
 	end
 
+	def tag_cloud
+    @tags = Make.tag_counts_on(:tags)
+  	end
+
 end

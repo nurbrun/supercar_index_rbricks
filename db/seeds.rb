@@ -1,6 +1,12 @@
 # Generated with RailsBricks
 # Initial seed file to use with Devise User Model
 
+Supercar.destroy_all
+Country.destroy_all
+City.destroy_all
+CarModel.destroy_all
+Make.destroy_all
+
 # Temporary admin account
 u = User.new(
     username: "admin",

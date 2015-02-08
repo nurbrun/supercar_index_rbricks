@@ -5,8 +5,9 @@
     <h3><%= city.supercar.city.tag_list %> </h3>
    	<p><%= link_to city.supercar.country.tag_list, countries_tag_path(city.supercar.country.tag_list) %></p>
 
-    <%= image_tag(city.supercar.img_url) %>
-
+    <div align="center">
+    <%= render :inline => city.supercar.img_url %>
+    </div>
 
 
   <% end %>

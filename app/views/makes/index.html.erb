@@ -5,8 +5,9 @@
 	<p><%= link_to make.supercar.city.tag_list, cities_tag_path(make.supercar.city.tag_list) %></p>
    	<p><%= link_to make.supercar.country.tag_list, countries_tag_path(make.supercar.country.tag_list) %></p>
 
-    <%= image_tag(make.supercar.img_url) %>
 
-
+    <div align="center">
+    	<%= render :inline => make.supercar.img_url %>
+	</div>
 
   <% end %>

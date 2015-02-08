@@ -9,8 +9,7 @@
 	<p><%= link_to @supercar.city.tag_list, cities_tag_path(@supercar.city.tag_list) %></p>
 	<p><%= link_to @supercar.country.tag_list, countries_tag_path(@supercar.country.tag_list) %></p>
 	
-	<%= image_tag(@supercar.img_url) %>
 
 
-	
+	<%= render :inline => @supercar.img_url %>
 
