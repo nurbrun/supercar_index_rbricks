@@ -49,8 +49,12 @@ class SupercarsController < ApplicationController
 		@supercar.car_model = CarModel.new(car_model_params)
 		@supercar.city = City.new(city_params)
 		@supercar.country = Country.new(country_params)
-		
-		# @supercar.user = current_user
+
+		if current_user
+			@supercar.user = current_user
+		else
+		end
+
 	  	if @supercar.save
 	  		redirect_to supercars_url
 	  	else

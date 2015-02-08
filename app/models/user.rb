@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   end
   
 # Relations
+has_many :supercars
 has_many :posts
 
   # Include default devise modules. Others available are:

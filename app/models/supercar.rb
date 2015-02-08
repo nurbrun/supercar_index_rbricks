@@ -3,6 +3,9 @@ class Supercar < ActiveRecord::Base
 	has_one :car_model
 	has_one :city
 	has_one :country
+
+	belongs_to :user
+	
 	accepts_nested_attributes_for :make, :car_model, :city, :country
 	validates_presence_of :img_url, :on => :create
 
