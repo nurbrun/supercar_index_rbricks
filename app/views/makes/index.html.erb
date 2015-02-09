@@ -1,11 +1,41 @@
 <br>
-<h3>Spotted <%= @makes.first.tag_list %>'s</h3>
+<h3>All <%= @makes.first.tag_list %>'s</h3>
 <br>
+
+<table class="table table-striped">
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Spotted By</th>
+  </tr>
+  <% @makes.each do |make| %>
+    <tr>
+      <td><%= make.supercar.make.tag_list %></td>
+      <td><%= link_to make.supercar.car_model.tag_list, models_tag_path(make.supercar.car_model.tag_list) %></td>
+      <td><%= link_to make.supercar.city.tag_list, cities_tag_path(make.supercar.city.tag_list) %></td>
+      <td><%= link_to make.supercar.country.tag_list, countries_tag_path(make.supercar.country.tag_list) %></td>
+      <td> 
+        <% if make.supercar.user %>
+          <%= make.supercar.user.username %>
+        <% else %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+
+</table>
+<br>
+<div style="text-align: right;"> 
+  <%= will_paginate @makes, renderer: BootstrapPagination::Rails %>
+  </div>
   <div class="container" id="tourpackages-carousel">
-  <% @makes.reverse.each_slice(4).each do |group| %>
+  <% @makes.each_slice(3).each do |group| %>
       <div class="row">
       <% group.each do |make| %>
-        <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-3">
+        <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-4">
           <div class="thumbnail">
           <div class = "insta-thumb">
             <%= render :inline => make.supercar.img_url %>
@@ -53,5 +83,10 @@
         </div>
       <% end %>      
     </div><!-- End row -->
-  <% end %>  
+  <% end %>
+  <div style="text-align: right;">  
+  <%= will_paginate @makes, renderer: BootstrapPagination::Rails %> 
+  </div>
 </div><!-- End container -->
+
+  

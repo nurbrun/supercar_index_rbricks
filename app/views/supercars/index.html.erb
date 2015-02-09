@@ -1,7 +1,7 @@
 <h1>All the supercars, dawg!</h1>
 <br>
 
-<h4>Recently uploaded</h4>
+<h4>Most Recently Indexed Supercars</h4>
 
 <table class="table table-striped">
   <tr>
@@ -12,7 +12,7 @@
     <th>Spotted By</th>
     <th></th>
   </tr>
-  <% @supercars.reverse.each do |supercar| %>
+  <% @supercars.each do |supercar| %>
     <tr>
       <td><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></td>
       <td><%= link_to supercar.car_model.tag_list, models_tag_path(supercar.car_model.tag_list) %></td>
@@ -27,8 +27,12 @@
       <td> <%= link_to 'Edit', edit_supercar_path(supercar) %> </td>   
     </tr>
   <% end %>
-</table>
 
+
+</table>
+<div style="text-align: right;">
+ <%= will_paginate @supercars, renderer: BootstrapPagination::Rails %>  
+</div>
 <br>
 
 <div class="container" id="tourpackages-carousel">
@@ -51,7 +55,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                      <h4 class="modal-title" id="myModalLabel"><%= supercar.make.tag_list %> <%= supercar.car_model.tag_list %> spotted in <%= supercar.city.tag_list %></h4>
                     </div>
                     <div class="modal-body">
                       <%= render :inline => supercar.img_url %>
@@ -83,8 +87,8 @@
         </div>
       <% end %>
     </div><!-- End row -->
-
-  <% end %> 
-      <%= will_paginate @supercars, renderer: BootstrapPagination::Rails %>       
-
+  <% end %>
+  <div style="text-align: right;"> 
+  <%= will_paginate @supercars, renderer: BootstrapPagination::Rails %>
+  </div>  
 </div><!-- End container -->

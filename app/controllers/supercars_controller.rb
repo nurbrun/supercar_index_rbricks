@@ -1,7 +1,7 @@
 class SupercarsController < ApplicationController
 
 	def index	 
-		@supercars = Supercar.paginate(:page => params[:page], :per_page => 6).order("created_at DESC")
+		@supercars = Supercar.all.paginate(:page => params[:page], :per_page => 6).order("created_at DESC")
 	end
 
 	def new

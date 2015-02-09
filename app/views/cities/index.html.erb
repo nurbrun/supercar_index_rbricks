@@ -1,8 +1,40 @@
+ <br>
+<h3>All <%= @cities.first.supercar.make.tag_list %> <%= @cities.first.supercar.car_model.tag_list %>'s in <%= @cities.first.tag_list %> </h3>
+<br>
+
+<table class="table table-striped">
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Spotted By</th>
+  </tr>
+  <% @cities.each do |city| %>
+    <tr>
+      <td><%= link_to city.supercar.make.tag_list, makes_tag_path(city.supercar.make.tag_list) %></td>
+      <td><%= link_to city.supercar.car_model.tag_list, models_tag_path(city.supercar.car_model.tag_list) %></td>
+      <td><%= city.supercar.city.tag_list %></td>
+      <td><%= link_to city.supercar.country.tag_list, countries_tag_path(city.supercar.country.tag_list) %></td>
+      <td> 
+        <% if city.supercar.user %>
+          <%= city.supercar.user.username %>
+        <% else %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+
+</table>
 <br>
 <h3>Spots from <%= @cities.first.tag_list %> </h3>
 <br>
+<div style="text-align: right;">
+ <%= will_paginate @cities, renderer: BootstrapPagination::Rails %>  
+</div>
   <div class="container" id="tourpackages-carousel">
-  <% @cities.reverse.each_slice(3).each do |group| %>
+  <% @cities.each_slice(3).each do |group| %>
       <div class="row">
       <% group.each do |city| %>
         <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-4">
@@ -53,5 +85,8 @@
         </div>
       <% end %>      
     </div><!-- End row -->
-  <% end %>  
+  <% end %> 
+<div style="text-align: right;">
+ <%= will_paginate @cities, renderer: BootstrapPagination::Rails %>  
+</div>   
 </div><!-- End container -->
