@@ -1,9 +1,22 @@
 <% @cities.reverse.each do |city| %>
- <br> 
+ <br>
+ 	<h4>Manufacturer:</h4>  
 	<p><%= link_to city.supercar.make.tag_list, makes_tag_path(city.supercar.make.tag_list) %></p>
+	<h4>Model:</h4>
 	<p><%= link_to city.supercar.car_model.tag_list, models_tag_path(city.supercar.car_model.tag_list) %></p>
-    <h3><%= city.supercar.city.tag_list %> </h3>
+	<h3>City</h3>
+    <h5><%= city.supercar.city.tag_list %> </h5>
+    <br>
+    <h4>Country</h4>
    	<p><%= link_to city.supercar.country.tag_list, countries_tag_path(city.supercar.country.tag_list) %></p>
+
+
+<br>
+    <h4>Spotted by:</h4>
+   	<% if city.supercar.user %>
+		<p><%= city.supercar.user.username %></p>
+  		<% else %>
+  	<% end %>
 
     <div align="center">
     <%= render :inline => city.supercar.img_url %>

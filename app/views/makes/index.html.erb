@@ -1,9 +1,21 @@
  <% @makes.reverse.each do |make| %>
- <br> 
-	<h3><%= make.supercar.make.tag_list %> </h3>
+ <br>
+
+ 	<h3>Manufacturer:</h3>
+	<h5><%= make.supercar.make.tag_list %> </h5>
+	<br>
+	<h4>Model:</h4>
 	<p><%= link_to make.supercar.car_model.tag_list, models_tag_path(make.supercar.car_model.tag_list) %></p>
+	<h4>City</h4>
 	<p><%= link_to make.supercar.city.tag_list, cities_tag_path(make.supercar.city.tag_list) %></p>
+	<h4>Country</h4>
    	<p><%= link_to make.supercar.country.tag_list, countries_tag_path(make.supercar.country.tag_list) %></p>
+
+    <h4>Spotted by:</h4>
+   	<% if make.supercar.user %>
+		<p><%= make.supercar.user.username %></p>
+  		<% else %>
+  	<% end %>
 
 
     <div align="center">

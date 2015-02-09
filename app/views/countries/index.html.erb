@@ -1,9 +1,20 @@
    <% @countries.reverse.each do |country| %>
 <br>
+	<h4>Manufacturer:</h4>
 	<p><%= link_to country.supercar.make.tag_list, makes_tag_path(country.supercar.make.tag_list) %></p>
+	<h4>Model:</h4>
 	<p><%= link_to country.supercar.car_model.tag_list, models_tag_path(country.supercar.car_model.tag_list) %></p>
+	<h4>City</h4>
 	<p><%= link_to country.supercar.city.tag_list, cities_tag_path(country.supercar.city.tag_list) %></p>
-    <h3><%= country.supercar.country.tag_list %> </h3>	
+	<h3>Country</h3>
+    <h5><%= country.supercar.country.tag_list %> </h5>
+
+<br>
+    <h4>Spotted by:</h4>
+    <% if country.supercar.user %>
+		<p><%= country.supercar.user.username %></p>
+  		<% else %>
+  	<% end %>
 
 
     <div align="center">

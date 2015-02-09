@@ -1,11 +1,23 @@
 
 
  <% @car_models.reverse.each do |car_model| %>
- <br> 
+ <br>
+ 	<h4>Manufacturer:</h4> 
 	<p><%= link_to car_model.supercar.make.tag_list, makes_tag_path(car_model.supercar.make.tag_list) %></p>
-	<h3><%= car_model.supercar.car_model.tag_list %> </h3>
+	<h3>Model:</h3>
+	<h5><%= car_model.supercar.car_model.tag_list %> </h5>
+	<br>
+	<h4>City</h4>
 	<p><%= link_to car_model.supercar.city.tag_list, cities_tag_path(car_model.supercar.city.tag_list) %></p>
+	<h4>Country</h4>
    	<p><%= link_to car_model.supercar.country.tag_list, countries_tag_path(car_model.supercar.country.tag_list) %></p>
+
+<br>
+    <h4>Spotted by:</h4>
+   	<% if car_model.supercar.user %>
+		<p><%= car_model.supercar.user.username %></p>
+  		<% else %>
+  	<% end %>
 
    	<div align="center">
     	<%= render :inline => car_model.supercar.img_url %>
