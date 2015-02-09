@@ -1,7 +1,3 @@
-
-
-
-
 <h1>All the supercars, dawg!</h1>
 <br>
 
@@ -44,7 +40,7 @@
           </div>
             <div class="caption">
               <br>
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= supercar.id %>">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<%= supercar.id %>">
                 Enrlarge this shiz
               </button>
               <!-- Modal -->
@@ -75,7 +71,7 @@
               <h3>Country:</h3>
               <h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5>
               <% if supercar.user %>
-                  <h3>Indexed by:</h3>
+                  <h3>Spotted by:</h3>
                   <p><%= supercar.user.username %></p>
                 <% else %>
               <% end %>

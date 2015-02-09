@@ -1,25 +1,57 @@
-   <% @countries.reverse.each do |country| %>
 <br>
-	<h4>Manufacturer:</h4>
-	<p><%= link_to country.supercar.make.tag_list, makes_tag_path(country.supercar.make.tag_list) %></p>
-	<h4>Model:</h4>
-	<p><%= link_to country.supercar.car_model.tag_list, models_tag_path(country.supercar.car_model.tag_list) %></p>
-	<h4>City</h4>
-	<p><%= link_to country.supercar.city.tag_list, cities_tag_path(country.supercar.city.tag_list) %></p>
-	<h3>Country</h3>
-    <h5><%= country.supercar.country.tag_list %> </h5>
-
+<h3>Spots from <%= @countries.first.tag_list %> </h3>
 <br>
-    <h4>Spotted by:</h4>
-    <% if country.supercar.user %>
-		<p><%= country.supercar.user.username %></p>
-  		<% else %>
-  	<% end %>
-
-
-    <div align="center">
-    	<%= render :inline => country.supercar.img_url %>
-    </div>
-
-
-  <% end %>
+  <div class="container" id="tourpackages-carousel">
+  <% @countries.reverse.each_slice(3).each do |group| %>
+      <div class="row">
+      <% group.each do |country| %>
+        <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-4">
+          <div class="thumbnail">
+          <div class = "insta-thumb">
+            <%= render :inline => country.supercar.img_url %>
+          </div>
+            <div class="caption">
+              <br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<%= country.supercar.id %>">
+                Enrlarge this shiz
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal_<%= country.supercar.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      <%= render :inline => country.supercar.img_url %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->       
+              <h3>Manufacturer:</h3>       
+              <h5><%= link_to country.supercar.make.tag_list, makes_tag_path(country.supercar.make.tag_list) %></h5>
+              <h3>Model:</h3>  
+              <h5><%= link_to country.supercar.car_model.tag_list, models_tag_path(country.supercar.car_model.tag_list) %></h5>
+              <h3>City:</h3>  
+              <h5><%= link_to country.supercar.city.tag_list, cities_tag_path(country.supercar.city.tag_list) %></h5>
+              <h3>Country:</h3>
+              <h5><%= link_to country.supercar.country.tag_list, countries_tag_path(country.supercar.country.tag_list) %></h5>
+              <% if country.supercar.user %>
+                  <h3>Spotted by:</h3>
+                  <p><%= country.supercar.user.username %></p>
+                <% else %>
+              <% end %>
+                                              
+            </div>
+          </div>
+        </div>
+      <% end %>      
+    </div><!-- End row -->
+  <% end %>  
+</div><!-- End container -->
