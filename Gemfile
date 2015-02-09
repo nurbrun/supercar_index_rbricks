@@ -65,3 +65,4 @@ group :production do
 end
 
 gem 'acts-as-taggable-on'
+gem 'will_paginate-bootstrap'
