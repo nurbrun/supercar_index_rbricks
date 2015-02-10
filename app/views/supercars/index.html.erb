@@ -46,28 +46,7 @@
           </div>
             <div class="caption">
               <br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<%= supercar.id %>">
-                Enrlarge this shiz
-              </button>
-              <!-- Modal -->
-              <div class="modal fade" id="myModal_<%= supercar.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel"><%= supercar.make.tag_list %> <%= supercar.car_model.tag_list %> spotted in <%= supercar.city.tag_list %></h4>
-                    </div>
-                    <div class="modal-body">
-                      <%= render :inline => supercar.img_url %>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Modal -->       
+                    
               <h3>Manufacturer:</h3>       
               <h5><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></h5>
               <h3>Model:</h3>  
