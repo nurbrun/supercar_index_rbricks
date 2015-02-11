@@ -2,22 +2,22 @@
 <br>
 
 <h4>Most Recently Indexed Supercars</h4>
-
+<br>
 <table class="table table-striped">
   <tr>
-    <th>Make</th>
-    <th>Model</th>
-    <th>City</th>
-    <th>Country</th>
-    <th>Spotted By</th>
+    <th><h3>Make</h3></th>
+    <th><h3>Model</h3></th>
+    <th><h3>City</h3></th>
+    <th><h3>Country</h3></th>
+    <th><h3>Spotted By</h3></th>
     <th></th>
   </tr>
   <% @supercars.each do |supercar| %>
     <tr>
-      <td><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></td>
-      <td><%= link_to supercar.car_model.tag_list, models_tag_path(supercar.car_model.tag_list) %></td>
-      <td><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></td>
-      <td><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></td>
+      <td><h5><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></h5></td>
+      <td><h5><%= link_to supercar.car_model.tag_list, models_tag_path(supercar.car_model.tag_list) %></h5></td>
+      <td><h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5></td>
+      <td><h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5></td>
       <td> 
         <% if supercar.user %>
           <%= supercar.user.username %>
@@ -47,16 +47,16 @@
             <div class="caption">
               <br>
                     
-              <h3>Manufacturer:</h3>       
+              <h4>Manufacturer:</h4>       
               <h5><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></h5>
-              <h3>Model:</h3>  
+              <h4>Model:</h4>  
               <h5><%= link_to supercar.car_model.tag_list, models_tag_path(supercar.car_model.tag_list) %></h5>
-              <h3>City:</h3>  
+              <h4>City:</h4>  
               <h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5>
-              <h3>Country:</h3>
+              <h4>Country:</h4>
               <h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5>
               <% if supercar.user %>
-                  <h3>Spotted by:</h3>
+                  <h4>Spotted by:</h4>
                   <p><%= supercar.user.username %></p>
                 <% else %>
               <% end %>

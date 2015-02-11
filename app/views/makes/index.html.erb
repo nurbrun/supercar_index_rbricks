@@ -1,5 +1,18 @@
 <br>
-<h3>All <%= @makes.first.tag_list %>'s</h3>
+<h3>All <%= @makes.last.tag_list %>'s</h3>
+
+<!-- 
+<% @makes.each do |make| %>
+  <%= make.supercar.car_model.tag_list %>
+<% end %>
+
+ -->
+
+<!-- 
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+<% end %>
+-->
 <br>
 
 <table class="table table-striped">
@@ -64,16 +77,16 @@
                 </div>
               </div>
               <!-- Modal -->       
-              <h3>Manufacturer:</h3>       
+              <h4>Manufacturer:</h4>       
               <h5><%= link_to make.supercar.make.tag_list, makes_tag_path(make.supercar.make.tag_list) %></h5>
-              <h3>Model:</h3>  
+              <h4>Model:</h4>  
               <h5><%= link_to make.supercar.car_model.tag_list, models_tag_path(make.supercar.car_model.tag_list) %></h5>
-              <h3>City:</h3>  
+              <h4>City:</h4>  
               <h5><%= link_to make.supercar.city.tag_list, cities_tag_path(make.supercar.city.tag_list) %></h5>
-              <h3>Country:</h3>
+              <h4>Country:</h4>
               <h5><%= link_to make.supercar.country.tag_list, countries_tag_path(make.supercar.country.tag_list) %></h5>
               <% if make.supercar.user %>
-                  <h3>Spotted by:</h3>
+                  <h4>Spotted by:</h4>
                   <p><%= make.supercar.user.username %></p>
                 <% else %>
               <% end %>

@@ -7,4 +7,14 @@ class CarModelsController < ApplicationController
 	    render :allmodels
 	  end
 	end
+
+	def tag_cloud
+    	@tags = Make.tag_counts_on(:tags)
+	end
+
+  	def tag
+	    @makes = Make.tagged_with(params[:id])
+	    @makes = Make.tag_counts_on(:tags)
+	    render :action => 'index'
+  	end
 end

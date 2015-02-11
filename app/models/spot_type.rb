@@ -1,4 +1,4 @@
-class Country < ActiveRecord::Base
+class SpotType < ActiveRecord::Base
   belongs_to :supercar
   has_one :rank
   

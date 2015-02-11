@@ -10,6 +10,7 @@ class SupercarsController < ApplicationController
 		@supercar.car_model = CarModel.new
 		@supercar.city = City.new
 		@supercar.country = Country.new
+		@supercar.spot_type = SpotType.new
 	end
 
 	def show
@@ -31,6 +32,8 @@ class SupercarsController < ApplicationController
 	  @supercar.car_model.update(car_model_params)
 	  @supercar.city.update(city_params)
 	  @supercar.country.update(country_params)
+	  @supercar.spot_type.update(spot_type_params)
+
 	    if @supercar.update_attributes(supercar_params)
 	      flash[:success] = "Supercar updated"
 	      redirect_to @supercar
@@ -47,6 +50,7 @@ class SupercarsController < ApplicationController
 		@supercar.car_model = CarModel.new(car_model_params)
 		@supercar.city = City.new(city_params)
 		@supercar.country = Country.new(country_params)
+		@supercar.spot_type = SpotType.new(spot_type_params)
 
 		if current_user
 			@supercar.user = current_user
@@ -78,6 +82,9 @@ end
 	end
 	def country_params
 	 params.require(:country).permit(:name, :tag_list)
+	end
+	def spot_type_params
+	 # params.require(:spot_type).permit(:name, :tag_list)
 	end
 
 	end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208175527) do
+ActiveRecord::Schema.define(version: 20150210233903) do
 
   create_table "car_models", force: :cascade do |t|
     t.integer  "supercar_id"
@@ -74,6 +74,24 @@ ActiveRecord::Schema.define(version: 20150208175527) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "ranks", force: :cascade do |t|
+    t.integer  "supercar_id"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ranks", ["supercar_id"], name: "index_ranks_on_supercar_id"
+
+  create_table "spot_types", force: :cascade do |t|
+    t.integer  "supercar_id"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "spot_types", ["supercar_id"], name: "index_spot_types_on_supercar_id"
 
   create_table "supercars", force: :cascade do |t|
     t.string   "img_url"

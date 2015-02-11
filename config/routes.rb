@@ -17,11 +17,35 @@ SupercarIndexBricks::Application.routes.draw do
     resources :posts
   end
 
-  resources :supercars 
-  resources :makes
-  resources :car_models
-  resources :cities
-  resources :countries
+  resources :supercars do 
+    collection do 
+      get :tag
+    end 
+  end 
+
+  resources :makes do 
+    collection do 
+      get :tag
+    end 
+  end
+
+  resources :car_models do 
+    collection do 
+      get :tag
+    end 
+  end
+
+  resources :cities do 
+    collection do 
+      get :tag
+    end 
+  end
+
+  resources :countries do 
+    collection do 
+      get :tag
+    end 
+  end
 
   get 'makes/tags/:tag', to: 'makes#index', as: :makes_tag
   get 'models/tags/:tag', to: 'car_models#index', as: :models_tag
@@ -29,3 +53,4 @@ SupercarIndexBricks::Application.routes.draw do
   get 'countries/tags/:tag', to: 'countries#index', as: :countries_tag
 
 end
+

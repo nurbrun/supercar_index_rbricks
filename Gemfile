@@ -66,3 +66,4 @@ end
 
 gem 'acts-as-taggable-on'
 gem 'will_paginate-bootstrap'
+gem 'ruby-oembed'

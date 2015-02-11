@@ -3,6 +3,9 @@ class Supercar < ActiveRecord::Base
 	has_one :car_model
 	has_one :city
 	has_one :country
+	has_one :spot_type
+
+	has_one :rank
 
 	belongs_to :user
 	

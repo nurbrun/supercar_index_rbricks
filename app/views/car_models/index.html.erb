@@ -64,16 +64,16 @@
                 </div>
               </div>
               <!-- Modal -->       
-              <h3>Manufacturer:</h3>       
+              <h4>Manufacturer:</h4>       
               <h5><%= link_to car_model.supercar.make.tag_list, makes_tag_path(car_model.supercar.make.tag_list) %></h5>
-              <h3>Model:</h3>  
+              <h4>Model:</h4>  
               <h5><%= link_to car_model.supercar.car_model.tag_list, models_tag_path(car_model.supercar.car_model.tag_list) %></h5>
-              <h3>City:</h3>  
+              <h4>City:</h4>  
               <h5><%= link_to car_model.supercar.city.tag_list, cities_tag_path(car_model.supercar.city.tag_list) %></h5>
-              <h3>Country:</h3>
+              <h4>Country:</h4>
               <h5><%= link_to car_model.supercar.country.tag_list, countries_tag_path(car_model.supercar.country.tag_list) %></h5>
               <% if car_model.supercar.user %>
-                  <h3>Spotted by:</h3>
+                  <h4>Spotted by:</h4>
                   <p><%= car_model.supercar.user.username %></p>
                 <% else %>
               <% end %>
