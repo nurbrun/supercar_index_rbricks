@@ -20,6 +20,18 @@
     </div>
     <% end %>
 
+<!--     <%= fields_for(@supercar.make) do |m| %>
+
+    <div class="form-group">
+      <%= m.label :Manufacturername %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= m.text_field :name,:multiple => true, :autofocus => true, :parse => true, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+ -->
     <%= fields_for(@supercar.car_model) do |c| %>
 
     <div class="form-group">

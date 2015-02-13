@@ -1,7 +1,7 @@
 class SupercarsController < ApplicationController
 
 	def index	 
-		@supercars = Supercar.all.paginate(:page => params[:page], :per_page => 6).order("created_at DESC")
+		@supercars = Supercar.all.paginate(:page => params[:page], :per_page => 9).order("created_at DESC")
 	end
 	def new
 		@supercar = Supercar.new
@@ -28,7 +28,9 @@ class SupercarsController < ApplicationController
 	  @supercar = Supercar.find(params[:id])
 	  @supercar.update(supercar_params)
 	  @supercar.make.update(make_params)
+
 	  @supercar.car_model.update(car_model_params)
+
 	  @supercar.city.update(city_params)
 	  @supercar.country.update(country_params)
 	  # @supercar.spot_type.update(spot_type_params)
@@ -74,10 +76,12 @@ end
 	 params.require(:supercar).permit(:img_url)
 	end
 	def make_params
-	 params.require(:make).permit(:name, { tag_list: [] }, :parse => true).permit!
+	 # params.require(:make).permit(:name, { tag_list: [] }, :parse => true).permit!
+	 params.require(:make).permit(:name, :tag_list)
 	end
 	def car_model_params
-	 params.require(:car_model).permit(:name, { tag_list: [] }, :parse => true).permit!
+	 # params.require(:car_model).permit(:name, { tag_list: [] }, :parse => true).permit!
+	 params.require(:car_model).permit(:name, :tag_list)
 	end
 	def city_params
 	 params.require(:city).permit(:name, :tag_list)

@@ -3,17 +3,18 @@
 
 <!-- 
 <% @makes.each do |make| %>
-  <%= make.supercar.car_model.tag_list %>
+  <%= make.name %>
 <% end %>
 
  -->
 
-<!-- 
+<!-- (for when tags properly wired)
 <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
   <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
 <% end %>
--->
-<br>
+
+ -->
+ <br>
 
 <table class="table table-striped">
   <tr>
@@ -25,7 +26,7 @@
   </tr>
   <% @makes.each do |make| %>
     <tr>
-      <td><%= make.supercar.make.tag_list %></td>
+      <td><%= make.tag_list %></td>
       <td><%= link_to make.supercar.car_model.tag_list, models_tag_path(make.supercar.car_model.tag_list) %></td>
       <td><%= link_to make.supercar.city.tag_list, cities_tag_path(make.supercar.city.tag_list) %></td>
       <td><%= link_to make.supercar.country.tag_list, countries_tag_path(make.supercar.country.tag_list) %></td>
@@ -52,8 +53,6 @@
           <div class="thumbnail">
           <div class = "insta-thumb">
           <% resource = OEmbed::Providers::Instagram.get("#{make.supercar.img_url}") %>
-<!--             <%= resource.html %>
- -->            
             <%= render :inline => resource.html %>
           </div>
             <div class="caption">
@@ -71,9 +70,7 @@
                     </div>
                     <div class="modal-body">
                       <% resource = OEmbed::Providers::Instagram.get("#{make.supercar.img_url}") %>
-<!--             <%= resource.html %>
- -->            
-            <%= render :inline => resource.html %>
+                      <%= render :inline => resource.html %>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -95,8 +92,7 @@
                   <h4>Spotted by:</h4>
                   <p><%= make.supercar.user.username %></p>
                 <% else %>
-              <% end %>
-                                              
+              <% end %>                                              
             </div>
           </div>
         </div>

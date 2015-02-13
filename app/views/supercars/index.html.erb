@@ -3,52 +3,107 @@
 
 <h4>Most Recently Indexed Supercars</h4>
 <br>
-<table class="table table-striped">
-  <tr>
-    <th><h3>Make</h3></th>
-    <th><h3>Model</h3></th>
-    <th><h3>City</h3></th>
-    <th><h3>Country</h3></th>
-    <th><h3>Spotted By</h3></th>
-    <th></th>
-  </tr>
-  <% @supercars.each do |supercar| %>
-    <tr>
-      <td>
-        <h5>
-          <% if supercar.make.tag_list.count %>
-            <% supercar.make.tag_list.each do |tag| %>
-              <p><%= link_to tag, makes_tag_path(tag) %></p>
+
+<div class="index-top-container">
+  <div class="index-top-left-list" style="display:inline-block;">
+ <div class = "table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th><h3>Make</h3></th>
+        <th><h3>Model</h3></th>
+        <th><h3>City</h3></th>
+        <th><h3>Country</h3></th>
+        <th><h3>Spotted By</h3></th>
+        <th></th>
+      </tr>
+      <% @supercars.each do |supercar| %>
+        <tr>
+          <td>
+            <h5>
+              <% if supercar.make.tag_list.count %>
+                <% supercar.make.tag_list.each do |tag| %>
+                  <p><%= link_to tag, makes_tag_path(tag) %></p>
+                <% end %>
+              <% else %>
+              <% end %>
+            </h5>
+          </td>
+          <td>
+          <h5>
+              <% if supercar.car_model.tag_list.count %>
+                <% supercar.car_model.tag_list.each do |tag| %>
+                  <p><%= link_to tag, models_tag_path(tag) %></p>
+                <% end %>
+              <% else %>
+              <% end %>
+            </h5>
+            </td>
+          <td><h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5></td>
+          <td><h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5></td>
+          <td> 
+            <% if supercar.user %>
+              <%= supercar.user.username %>
+            <% else %>
             <% end %>
-          <% else %>
-          <% end %>
-        </h5>
-      </td>
-      <td>
-      <h5><h5>
-          <% if supercar.car_model.tag_list.count %>
-            <% supercar.car_model.tag_list.each do |tag| %>
-              <p><%= link_to tag, models_tag_path(tag) %></p>
-            <% end %>
-          <% else %>
-          <% end %>
-        </h5>
-        </td>
-      <td><h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5></td>
-      <td><h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5></td>
-      <td> 
-        <% if supercar.user %>
-          <%= supercar.user.username %>
-        <% else %>
-        <% end %>
-      </td>
-      <td> <%= link_to 'Edit', edit_supercar_path(supercar) %> </td>   
-    </tr>
-  <% end %>
-</table>
-<div style="text-align: right;">
- <%= will_paginate @supercars, renderer: BootstrapPagination::Rails %>  
-</div>
+          </td>
+          <td> <%= link_to 'Edit', edit_supercar_path(supercar) %> </td>   
+        </tr>
+      <% end %>
+    </table>
+    </div>
+    </div>
+    <div class="index-ad-space" style="display:inline-block;width:30%;float:right;">
+    <br>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">        
+            <input type="text" class="form-control" placeholder="Search for Manufacturer...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Model...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+      <br>
+       <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for City...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+      <br>
+       <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Country...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+      <div style="text-align: right;">
+       <%= will_paginate @supercars, renderer: BootstrapPagination::Rails %>  
+      </div>
+    </div>
+  
+  </div><!-- /.inex-top-container -->
+
 <br>
 
 <div class="container" id="tourpackages-carousel">
@@ -62,34 +117,60 @@
               <%= render :inline => resource.html.html_safe %>
             </div>
             <div class="caption">
-            <br>     
-              <h4>Manufacturer:</h4>       
-              <h5>
+            <div id="thumbnail-left-info" >
+               <h3>City:</h3>  
+              <h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5>
+              <h3>Country:</h3>
+              <h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5>
+              <% if supercar.user %>
+                  <h3>Spotted by:</h3>
+                  <p><%= supercar.user.username %></p>
+                <% else %>
+              <% end %>
+            </div>
+            <div id="thumbnail-right-info">              
+              <h3>Manufacturer:</h3>       
+              
+              <% if supercar.make.tag_list.count %>
+<!--                 <h5><%= link_to supercar.car_model.tag_list, models_tag_path(supercar.car_model.tag_list) %></h5>
+ -->                  <% supercar.make.tag_list.each do |tag| %>
+                  <p><%= link_to tag, makes_tag_path(tag) %></p>
+                <% end %>
+              <% else %>
+              <% end %>             
+
+<!-- for tagged when tagged link routes ares working
               <% if supercar.make.tag_list.count %>
                 <% supercar.make.tag_list.each do |tag| %>
                   <p><%= link_to tag, makes_tag_path(tag) %></p>
                 <% end %>
               <% else %>
               <% end %>
-              </h5>
-              <h4>Model:</h4>  
+               -->
+              
+              <h3>Model:</h3>
+
               <h5>
+              <% if supercar.car_model.tag_list.count %>
+<!--               <h5><%= link_to supercar.make.tag_list, makes_tag_path(supercar.make.tag_list) %></h5>
+ -->              <% supercar.car_model.tag_list.each do |tag| %>
+                      <p><%= link_to tag, models_tag_path(tag) %></p>
+                <% end %>
+              <% else %>
+              <% end %>
+              
+<!-- for tagged when tagged link routes ares working
               <% if supercar.car_model.tag_list.count %>
                 <% supercar.car_model.tag_list.each do |tag| %>
                   <p><%= link_to tag, models_tag_path(tag) %></p>
                 <% end %>
               <% else %>
               <% end %>
-              </h5>
-              <h4>City:</h4>  
-              <h5><%= link_to supercar.city.tag_list, cities_tag_path(supercar.city.tag_list) %></h5>
-              <h4>Country:</h4>
-              <h5><%= link_to supercar.country.tag_list, countries_tag_path(supercar.country.tag_list) %></h5>
-              <% if supercar.user %>
-                  <h4>Spotted by:</h4>
-                  <p><%= supercar.user.username %></p>
-                <% else %>
-              <% end %>                                              
+               -->
+              </h5> 
+            </div>          
+             
+                                                           
             </div>
           </div>
         </div>
