@@ -41,8 +41,8 @@
         <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-4">
           <div class="thumbnail">
           <div class = "insta-thumb">
-            <%= render :inline => country.supercar.img_url %>
-          </div>
+            <% resource = OEmbed::Providers::Instagram.get("#{country.supercar.img_url}") %>
+            <%= render :inline => resource.html %>          </div>
             <div class="caption">
               <br>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<%= country.supercar.id %>">
@@ -57,7 +57,8 @@
                       <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                      <%= render :inline => country.supercar.img_url %>
+                      <% resource = OEmbed::Providers::Instagram.get("#{country.supercar.img_url}") %>
+                      <%= render :inline => resource.html %>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -79,8 +80,7 @@
                   <h4>Spotted by:</h4>
                   <p><%= country.supercar.user.username %></p>
                 <% else %>
-              <% end %>
-                                              
+              <% end %>                                              
             </div>
           </div>
         </div>

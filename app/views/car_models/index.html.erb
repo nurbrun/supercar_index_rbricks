@@ -38,7 +38,8 @@
         <div id ="thumb-grid" class="col-xs-18 col-sm-6 col-m-4 col-lg-4">
           <div class="thumbnail">
           <div class = "insta-thumb">
-            <%= render :inline => car_model.supercar.img_url %>
+            <% resource = OEmbed::Providers::Instagram.get("#{car_model.supercar.img_url}") %>
+            <%= render :inline => resource.html %>
           </div>
             <div class="caption">
               <br>
@@ -54,7 +55,8 @@
                       <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                      <%= render :inline => car_model.supercar.img_url %>
+                      <% resource = OEmbed::Providers::Instagram.get("#{car_model.supercar.img_url}") %>
+                      <%= render :inline => resource.html %>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

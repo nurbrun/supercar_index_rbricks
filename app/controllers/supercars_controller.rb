@@ -3,7 +3,6 @@ class SupercarsController < ApplicationController
 	def index	 
 		@supercars = Supercar.all.paginate(:page => params[:page], :per_page => 6).order("created_at DESC")
 	end
-
 	def new
 		@supercar = Supercar.new
 		@supercar.make = Make.new
@@ -32,7 +31,7 @@ class SupercarsController < ApplicationController
 	  @supercar.car_model.update(car_model_params)
 	  @supercar.city.update(city_params)
 	  @supercar.country.update(country_params)
-	  @supercar.spot_type.update(spot_type_params)
+	  # @supercar.spot_type.update(spot_type_params)
 
 	    if @supercar.update_attributes(supercar_params)
 	      flash[:success] = "Supercar updated"
@@ -45,12 +44,13 @@ class SupercarsController < ApplicationController
 
 	def create
 
+
 		@supercar = Supercar.new(supercar_params)
-		@supercar.make = Make.new(make_params)
-		@supercar.car_model = CarModel.new(car_model_params)
+		@supercar.make = Make.new(make_params, :parse => true)
+		@supercar.car_model = CarModel.new(car_model_params, :parse => true)
 		@supercar.city = City.new(city_params)
 		@supercar.country = Country.new(country_params)
-		@supercar.spot_type = SpotType.new(spot_type_params)
+		# @supercar.spot_type = SpotType.new(spot_type_params)
 
 		if current_user
 			@supercar.user = current_user
@@ -67,15 +67,17 @@ class SupercarsController < ApplicationController
 	
 def destroy
 end
+
+
 	private
 	def supercar_params
 	 params.require(:supercar).permit(:img_url)
 	end
 	def make_params
-	 params.require(:make).permit(:name, :tag_list)
+	 params.require(:make).permit(:name, { tag_list: [] }, :parse => true).permit!
 	end
 	def car_model_params
-	 params.require(:car_model).permit(:name, :tag_list)
+	 params.require(:car_model).permit(:name, { tag_list: [] }, :parse => true).permit!
 	end
 	def city_params
 	 params.require(:city).permit(:name, :tag_list)

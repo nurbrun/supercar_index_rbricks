@@ -14,7 +14,7 @@
       <%= m.label :Manufacturer %>
       <div class="row">
         <div class="col-sm-6">
-          <%= m.text_field :tag_list, :autofocus => true, class: "form-control" %>
+          <%= m.text_field :tag_list,:multiple => true, :autofocus => true, :parse => true, class: "form-control" %>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <%= c.label :Model %>
       <div class="row">
         <div class="col-sm-6">
-          <%= c.text_field :tag_list, :autofocus => true, class: "form-control" %>
+          <%= c.text_field :tag_list,:multiple => true, :autofocus => true, :parse => true, class: "form-control" %>
         </div>
       </div>
     </div>
@@ -56,23 +56,22 @@
     </div>
     <% end %>
 
-<!--     <%= fields_for(@supercar.spot_type) do |s| %>
-
-    <div class="form-group">
-      <%= s.label :Spot_Type %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= s.text_field :tag_list, :autofocus => true, class: "form-control" %>
-        </div>
-      </div>
-    </div>
-    <% end %> -->
 
 
+<!-- 
       <div class="form-group">
       <%= f.label :Embeded_Instagram_Code %>
       <div class="row">
         <div class="col-sm-12">
+          <%= f.text_area :img_url, :autofocus => true, class: "form-control" %>
+        </div>
+      </div>
+    </div> -->
+
+          <div class="form-group">
+      <%= f.label :Instagram_Image_URL %>
+      <div class="row">
+        <div class="col-sm-6">
           <%= f.text_area :img_url, :autofocus => true, class: "form-control" %>
         </div>
       </div>
@@ -88,61 +87,3 @@
 
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-    <div> <%= render 'url_converter_index' %> </div>
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    <style>.embed-container {position: relative; padding-bottom: 120%; height: 0; overflow: hidden;} .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='//instagram.com/p/dnQi4EGuZx/embed/' frameborder='0' scrolling='no' allowtransparency='true'></iframe></div>
-///////////
-
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/y8Ua6GQjLi/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">Lamborghini Aventador | Follow: @stickercity | Restyle Your Vehicle With A Custom Car Wrap (Photo: @henryjmw)</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Welcome To The Car Game (@motor_head_) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-02-11T01:29:36+00:00">Feb 10, 2015 at 5:29pm PST</time></p></div></blockquote>
-<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-
-
-////////////
-
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-    <div style="padding:8px;">
-        <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;">
-            <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div>
-        </div>
-        <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/y8Ua6GQjLi/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">Lamborghini Aventador | Follow: @stickercity | Restyle Your Vehicle With A Custom Car Wrap (Photo: @henryjmw)</a>
-        </p>
-        <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Welcome To The Car Game (@motor_head_) on
-            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-02-11T01:29:36+00:00">Feb 10, 2015 at 5:29pm PST</time>
-        </p>
-    </div>
-</blockquote>
-<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-
-//////////////
-
-
-<style>
-    .embed-container {
-        position: relative;
-        padding-bottom: 120%;
-        height: 0;
-        overflow: hidden;
-    }
-    .embed-container iframe,
-    .embed-container object,
-    .embed-container embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-<div class='embed-container'>
-    <iframe src='//instagram.com/p/dnQi4EGuZx/embed/' frameborder='0' scrolling='no' allowtransparency='true'></iframe>
-</div>
-
-/////////////end
-
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/V8UMy0LjpX/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">My favorite cat from tonight&#39;s episode- a true winner. #newgirl</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Zooey Deschanel (@zooeydeschanel) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2013-02-20T06:17:14+00:00">Feb 19, 2013 at 10:17pm PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>

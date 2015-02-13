@@ -3,7 +3,7 @@ class CarModel < ActiveRecord::Base
   has_one :rank
   
   acts_as_taggable
-  acts_as_taggable_on :tags
+  acts_as_taggable_on :tags, :names
 
   validates_presence_of :tag_list, :on => :create
 
